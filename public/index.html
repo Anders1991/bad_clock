@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<script>
+    fetchClock();
+    setInterval(fetchClock, 1000);
+
+    function fetchClock() {
+        fetch("http://worldtimeapi.org/api/timezone/Europe/Copenhagen")
+            .then(res => res.json())
+            .then(res => {
+                const timeParagraph = document.getElementById("datetime");
+                let time = res.datetime.substring(11).substring(8,0);
+                timeParagraph.innerText = time;
+
+                let fullWidth = window.innerWidth;
+                let fullHeight = window.innerHeight;
+
+                timeParagraph.style.fontSize = Math.round(Math.random() * 200) + "px";
+                timeParagraph.style.position = "absolute";
+                timeParagraph.style.left = Math.round((Math.random() * fullWidth)) + "px";
+                timeParagraph.style.top = Math.round((Math.random() * fullHeight)) + "px";
+        });
+
+    };
+
+</script>
+
+<h1>Bad Clock</h1>
+<h1 id="datetime"></h1>
+
+</body>
+</html>
