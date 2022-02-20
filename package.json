@@ -5,7 +5,17 @@
     "devDependencies": {
         "nodemon": "^2.0.15"
     },
+    "keywords": [
+        "example",
+        "heroku"
+    ],
     "scripts": {
-        "dev": "nodemon app.js"
+        "dev": "nodemon app.js",
+        "start":"node app.js"
+    
+    },
+    "engines": {
+        "node": "15.8.0"
     }
+    
 }
